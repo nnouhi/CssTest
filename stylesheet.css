@@ -1,0 +1,1001 @@
+
+    body {
+
+        background-color: #ffffff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23ffffff' stroke-width='.5' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cuse fill='%23fafafa' href='%23s' y='2'/%3E%3Cuse fill='%23fafafa' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23f5f5f5' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23f5f5f5' href='%23s'/%3E%3Cuse fill='%23f0f0f0' href='%23s' x='2'/%3E%3Cuse fill='%23f0f0f0' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23ebebeb'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23ebebeb'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23e5e5e5'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23ffffff'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23e0e0e0'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23F60'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23F60'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23F60'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+        background-attachment: fixed;
+        background-size: cover;
+
+    }
+
+    h1{
+        font-family: Fixed, monospace;
+        text-align: center;
+        color: darksalmon;
+        margin-bottom:2%;
+    }
+
+    h2{
+        font-family: Fixed, monospace;
+        text-align: center;
+        color: darksalmon;
+        margin-bottom:2%;
+    }
+
+    h3{
+        font-family: Fixed, monospace;
+        margin-left: 10px;
+        text-align: center;
+        color: darksalmon;
+        font-size: 20px;
+    }
+
+    h4{
+        font-family: Fixed, monospace;
+        margin-left: 10px;
+        text-align: center;
+        color:black;
+        font-size: 15px;
+    }
+
+    p{
+        text-align: center;
+        font-family:Lucidatypewriter, monospace;
+        color:black;
+    }
+
+    ul{
+        font-family:Lucidatypewriter, monospace;
+        bottom: 0;
+        width: 100%;
+        display:inline;
+        list-style-type: none;
+        text-align: center;
+    }
+
+    li{
+        margin-bottom:5px;
+    }
+
+
+    .IndexContainer{
+        display:block;
+        background-color: white;
+        padding:10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 2px rgba(0,0,0,0.23);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+        margin-top: auto;
+    }
+
+    .IndexContainer2{
+        background-color: white;
+        padding:10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 2px rgba(0,0,0,0.23);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+
+    .IndexContainer3{
+        display:none;
+        background-color: white;
+        padding:10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 2px rgba(0,0,0,0.23);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-top: auto;
+        width:auto;
+    }
+
+    .LBContainer{
+        display:block;
+        background-color: white;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 2px rgba(0,0,0,0.23);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    .scoreContainer{
+        display:block;
+        background-color: white;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 2px rgba(0,0,0,0.23);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    .IndexTitle{
+        background-color: white;
+        padding:10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 2px rgba(0,0,0,0.23);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+        margin-top: auto;
+        text-align: center;
+    }
+
+    form{
+        text-align: center;
+    }
+
+    .GetStartedBtn
+    {
+        cursor: pointer;
+        background-color: darksalmon;
+        padding: .5em;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 20px;
+        text-decoration: none;
+        border: none;
+        margin-top: 20px;
+        margin-left:auto;
+        margin-right:auto;
+        display: inline-block;
+
+    }
+
+    .GetStartedBtn:hover{
+        background-color: #FF6600;
+        box-shadow: 0 0 1px #777;
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+        margin-left:-5px;
+    }
+    .shadowed{
+        width:30%;
+        margin-left:auto;
+        margin-right:auto;
+
+    }
+
+    /* Landing page Styling ENDS*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*app page Styling*/
+    .appBtns{
+        cursor: pointer;
+        background-color: darksalmon;
+        padding: .5em;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block;
+        font-size:15px;
+    }
+
+    .skipBtn{
+        cursor: pointer;
+        background-color: darksalmon;
+        padding: .5em;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block;
+        font-size:20px;
+        margin-top: 15px;
+    }
+
+    .skipBtn:hover{
+        background-color: #FF6600;
+        box-shadow: 0 0 1px #777;
+    }
+
+    .mcqBtns{
+        background-color: darksalmon;
+        padding: .5em;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 20px;
+        text-decoration: none;
+        border: none;
+        margin: 10px 10px 10px 25px;
+        display: inline-block;
+    }
+
+    .mcqBtns:hover{
+        background-color: #FF6600;
+        box-shadow: 0 0 1px #777;
+    }
+
+    .questionBtns{
+        cursor: pointer;
+        background-color: darksalmon;
+        padding: .5em;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 18px;
+        text-decoration: none;
+        border: none;
+        margin-top: 20px;
+        margin-left:auto;
+        margin-right:auto;
+        display: inline-block;
+    }
+
+    .questionBtns:hover{
+        background-color: #FF6600;
+        box-shadow: 0 0 1px #777;
+    }
+
+    .appBtns:hover{
+        background-color: #FF6600;
+        box-shadow: 0 0 1px #777;
+    }
+
+    .infoBtn{
+        cursor: pointer;
+        background-color: darksalmon;
+        padding: .5em;
+        float:right;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block;
+        font-size:15px;
+    }
+
+    .infoBtn:hover{
+        background-color: #FF6600;
+        box-shadow: 0 0 1px #777;
+    }
+
+    .HD{
+        color:black;
+    }
+
+    a {
+        color:darksalmon;
+        font-family:Lucidatypewriter, monospace;
+        font-size: 19px;
+        text-align: center;
+    }
+
+    a:hover{
+        text-decoration: none;
+        color: #FF6600;
+    }
+
+    #TH {
+        text-decoration: none;
+    }
+
+    #TH:hover{
+       color: #FF6600;
+    }
+
+
+
+
+
+    /* The Modal (background) */
+    .modal {
+        color:darksalmon;
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: darksalmon; /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        border-radius: 15px;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .topnav{
+        margin-bottom:5%;
+    }
+
+    .appContainer{
+        background-color: white;
+        padding:10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 2px rgba(0,0,0,0.23);
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+
+
+    .answer{
+        display:block;
+    }
+
+    .messagesContainer{
+        display:inline-block;
+        position:absolute;
+        font-size:50px;
+        font-weight:bold;
+        top: 75%;
+        left: 60%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+
+
+
+    .qrContainer{
+        background-color: white;
+        padding:10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 2px rgba(0,0,0,0.23);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    .copyBtn{
+        cursor: pointer;
+        background-color: darksalmon;
+        padding: .5em;
+        float:right;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block;
+        font-size:15px;
+    }
+
+    .copyBtn:hover{
+        background-color: #FF6600;
+        box-shadow: 0 0 1px #777;
+    }
+
+    .refreshContainer{
+        text-align: center;
+    }
+
+    .refreshBtn{
+        cursor: pointer;
+        background-color: darksalmon;
+        padding: .5em;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-size:15px;
+    }
+
+    .viewRank{
+        text-align: center;
+        margin-bottom: 10%;
+    }
+    .refreshBtn:hover{
+        background-color: #FF6600;
+        box-shadow: 0 0 1px #777;
+    }
+
+
+
+    .resultContainer{
+        background-color: darksalmon;
+        border-radius: 5px;
+        font-family:Lucidatypewriter, monospace;
+        color: white;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    .preview{
+        width:300px;
+        height:250px;
+    }
+
+    .contentContainer{
+        position:relative;
+        text-align: center;
+    }
+
+
+    #messagesContainer{
+        text-align: center;
+    }
+
+    .ChallengesHD
+    {
+        position: relative;
+        font-size: 100px;
+        letter-spacing: 0.06em;
+        left:200px;
+        margin-top:0px;
+    }
+
+    .ViewChallenges
+    {
+        position:relative;
+        margin-bottom: 50px;
+        font-size:50px;
+        left:150px;
+    }
+
+
+
+  /*  li{
+        position:relative;
+        padding-bottom: 60px;
+        list-style-type: none;
+    }*/
+
+
+
+
+    #buttonHandleList
+    {
+        position:absolute;
+        font-size: 50px;
+        top:450px;
+        left:100px;
+        border-radius: 25em;
+        border: 2px solid black;
+    }
+
+    .treasureHunts
+    {
+        font-family: Lucidatypewriter, monospace;
+        bottom: 0;
+        width: 100%;
+        display: inline;
+        list-style-type: none;
+        text-align: center;
+        font-size: 50px;
+    }
+
+
+    .questionMessage{
+        position:relative;
+        font-size: 3rem;
+        font-weight: bold;
+        display:inline;
+        text-align: center;
+    }
+
+
+    .swal-footer {
+        text-align: center;
+    }
+
+     .swal-text {
+         text-align: center;
+     }
+
+
+
+    /*app page Styling ENDS*/
+
+
+    .notes
+    {
+        font-size:50px;
+    }
+
+    input[type="text"], input[type="number"],input[type="integer"] {
+        width: 80%;
+        max-width: 250px;
+        padding:20px;
+    }
+
+    .btnsContainer{
+        margin: auto;
+        width: max-content;
+        cursor: pointer;
+    }
+
+
+    .leaderboardTable {
+
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        position:absolute;
+        top: 50%;
+        left: 6%;
+    }
+
+    .centered {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .loading{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+        width: 100px;
+        height: 100px;
+        font-size: 70px;
+    }
+
+    .loadingQuestionsM{
+        font-size:70px;
+        margin-left:100px;
+    }
+
+    .hasPrizeContainer{
+        position:relative;
+        display:none;
+        text-align: center;
+        font-size:50px;
+        margin-bottom:5%;
+        left:50px;
+        font-family: Lucidatypewriter, monospace;
+        width: 100%;
+    }
+
+
+    /*register page styling stars*/
+
+
+
+
+    .nameBtn{
+        position:relative;
+        display:inline-block;
+        font-size:50px;
+        left:55px;
+        font-weight: bold;
+        border-radius: 12px;
+        padding: 15px 32px;
+        border: 10px solid #D77B1A;
+        background-color: #D77B1A;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+
+
+
+
+    .loadingMessageContainer {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+        width: 100px;
+        height: 100px;
+    }
+
+
+
+
+
+/* TEST PAGE STYLING*/
+
+table {
+    font-family: monospace;
+    font-weight: bolder;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.LB, .LBEntry{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+.LB th, .LBEntry th{
+    color:darksalmon;
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.LB th, .LB td,.LBEntry th, .LBEntry td{
+    text-align: center;
+}
+
+th, td {
+    text-align: left;
+    /*
+    padding: 8px;
+    */
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+.unitTestHD{
+    text-align: center;
+}
+
+.unitTestContainer{
+    text-align: center;
+}
+.LBTableContainer{
+    text-align: center;
+    position:relative;
+    display:none;
+}
+
+.ScoreTableContainer{
+    text-align: center;
+    position:relative;
+    display:none;
+}
+
+.QuestionsTableContainer{
+    text-align: center;
+    position:relative;
+    display:none;
+}
+
+.ScoreTableContainer{
+    text-align: center;
+    position:relative;
+    display:none;
+}
+.checkboxes{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.submitLdboards .submitScore{
+    position:relative;
+}
+.prizeP{
+    position:relative;
+    display:none;
+}
+.sortedP{
+    position:relative;
+    display:none;
+}
+.completedQP{
+    position:relative;
+    display:none;
+}
+.skipP{
+    position:relative;
+    display:none;
+}
+.geolocationP{
+    position:relative;
+    display:none;
+}
+.qType{
+    position:relative;
+    font-size:16px;
+    font-weight: bold;
+}
+
+/* UAT PAGE STYLING*/
+
+.UATHD{
+    position: relative;
+    top:100px;
+    font-size: 2.1rem;
+    text-align: center;
+    margin-bottom:20%;
+}
+
+.navBtn{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+.UATContainer{
+    padding: 10px;
+    position:relative;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    box-shadow: 0 0 5px 2px rgb(0 0 0 / 23%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 150px;
+}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    opacity: 0.3;
+}
+
+#myBtn:hover {
+    background-color: #555;
+}
+
+.UATTableContainer{
+    text-align: center;
+    position:relative;
+    padding: 10px;
+    position:relative;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    box-shadow: 0 0 5px 2px rgb(0 0 0 / 23%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 150px;
+}
+
+
+/*Media query for tablets*/
+@media only screen and (min-width: 768px){
+
+    /*Landing Page styling*/
+    .IndexContainer2{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width:50%;
+    }
+    .shadowed{
+        width:20%;
+    }
+
+    h1{
+        font-size: 40px;
+    }
+
+    h2{
+        font-size: 35px;
+    }
+
+    .IndexContainer{
+        font-size: 30px;
+    }
+
+    .GetStartedBtn{
+        font-size: 30px;
+    }
+
+    /*SignIn Page styling*/
+
+    .appBtns{
+        font-size: 30px;
+
+    }
+
+    .infoBtn{
+        font-size: 30px;
+    }
+
+    h3{
+        font-size: 30px;
+    }
+
+    input{
+        font-size: 30px;
+    }
+
+    .IndexContainer3{
+        font-size: 30px;
+    }
+
+    a{
+        font-size: 30px;
+    }
+
+
+    /*App Page styling*/
+
+    .contentContainer{
+        font-size: 30px;
+    }
+
+    .copyBtn{
+        font-size: 30px;
+    }
+
+    h4{
+        font-size: 25px;
+    }
+
+    .questionBtns{
+        font-size: 30px;
+    }
+
+    .skipBtn{
+        font-size: 30px;
+    }
+    .mcqBtns{
+        font-size: 30px;
+    }
+
+    /*Leaderboards Page Styling*/
+
+    .refreshBtn{
+        font-size: 30px;
+    }
+
+    .LBContainer,
+    .tableContainerEntry{
+        font-size: 25px;
+    }
+
+    td{
+        padding:20px;
+    }
+
+
+}
+/*Media query for larger screens (computer/ipad pro)*/
+@media only screen and (min-width: 1200px){
+
+    /*Landing Page styling*/
+    .IndexContainer2{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    img{
+        width:30%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .shadowed{
+        width:10%;
+    }
+
+    /*SignIn Page styling*/
+
+
+    .wrapper{
+        margin-top: 0px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .IndexContainer3{
+        top:250px;
+        position:absolute;
+        width:100%;
+    }
+
+    /*App Page styling*/
+
+    .appBtns{
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .topnav{
+        margin-bottom: 20px;
+    }
+
+    .infoBtn{
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .copyBtn{
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .questionBtns{
+        font-size: 20px;
+    }
+
+    .skipBtn{
+        font-size: 20px;
+    }
+
+
+    /*Leaderboards Page*/
+    .refreshBtn{
+        font-size: 20px;
+    }
+
+    .viewRank{
+        margin-bottom: 20px;
+    }
+
+}
+
+

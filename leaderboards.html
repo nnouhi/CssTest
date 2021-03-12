@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BrainstormQ</title>
+    <meta name="viewport" content="width=device-width" >
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="BrainstormQ Treasure hunt web app">
+</head>
+<body onload="checkForTest()">
+    <!-- top navigation menu -->
+    <div class="topnav" id="topnav">
+
+        <button id="homeBtn" class="appBtns" onclick="goToIndex()"> <i class="fa fa-home"></i>Home</button>
+        <button id="restartBtn" class="appBtns" onclick="goToTH()"><i class="fa fa-list"></i>Restart</button>
+        <button id="infoBtn" class="infoBtn"><i class="fa fa-question-circle-o"></i>Info</button>
+        <button id="startNewBtn" class="appBtns" onclick="goToSignIn()"><i class="fa fa-rotate-left"></i>Start New</button>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p style="color:darksalmon">Button Descriptions</p>
+            <ul class="pointsModal">
+
+                <li style="color:black"> <span style="color: darksalmon">Home Button:</span> Takes you back to the Landing Page. </li>
+                <li style="color:black"> <span style="color: darksalmon">Restart Button:</span> Choose another TH with the same username. </li>
+                <li style="color:black"> <span style="color: darksalmon">Start New Button:</span> Go back to the Sign in page. </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="LBContainer" id="LBContainer">
+        <h1 class="LBHD">Leaderboards</h1>
+        <div class="refreshContainer">
+            <button id="refreshBtn" class="refreshBtn" onclick="refreshLeaderboard()"><i class="fa fa-rotate-left"></i>Refresh</button>
+            <button id="viewAnswersBtn" class="refreshBtn" onclick="goToViewPage()"><i class="fa fa-eye"></i>View Answers</button>
+        </div>
+        <div id="scoreContainer">
+                <h4 id="scoreDisplay">Score Test</h4>
+        </div>
+        <div id="hidePrize">
+                <h4 id="prizeDisplay"></h4>
+        </div>
+        <div class="viewRank">
+            <a id="viewRank" href="#leaderboardTableEntry">View your rank!</a>
+        </div>
+        <div class="tableWrapper" id="tableWrapper">
+            <div class="tableContainer">
+                <table id="leaderboardTable" class="LB">
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Completion Time (s)</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="tableContainerEntry" id="tableContainerEntry">
+        <table id="leaderboardTableEntry" class="LBEntry" style="margin-top: 20px">
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Completion Time (s)</th>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <div class="centered">
+        <h2 id="loadingLB" style="color: black">
+            Loading..
+        </h2>
+    </div>
+
+
+    <script>
+
+        const params = new URLSearchParams(location.search);
+        const TH_TEST_URL = "https://codecyprus.org/th/test-api/"; // the test API base url
+        const TH_BASE_URL_LEADERBOARDS="https://codecyprus.org/th/api/leaderboard?session=";
+        const TH_BASE_URL_SCORE="https://codecyprus.org/th/api/score?session="; // the true API base url for score
+        let indexQ=params.get("indexQ");
+
+        document.getElementById("startNewBtn").style.display = "inline-block";
+
+        // Get the modal
+        let modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        let btn = document.getElementById("infoBtn");
+
+        // Get the <span> element that closes the modal
+        let span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+        function checkForTest(){
+            checkForTestLB();
+            checkForTestScore();
+        }
+
+        function checkForTestLB(){
+            if(testLB()){
+                let testPrize=params.has("hasPrize");
+                let testSorted=params.has("sorted");
+                let testNumOfPlayers=params.get("size");
+                let url=TH_TEST_URL+"leaderboard?"+"sorted="+testSorted+"&hasPrize="+testPrize+"&size="+testNumOfPlayers;
+                //hide unwanted elements for testing
+                document.getElementById("refreshBtn").style.display="none";
+                document.getElementById("scoreDisplay").style.display="none";
+                document.getElementById("viewRank").style.display="none";
+                document.getElementById("tableContainerEntry").style.display="none";
+                document.getElementById("loadingLB").innerText="";
+                loadLeaderboard(url);
+            }
+            else if(!testLB() && !testSc()){
+                let sessionID=params.get("session");
+                document.getElementById("LBContainer").style.display="none";
+                document.getElementById("tableContainerEntry").style.display="none";
+                let url=TH_BASE_URL_LEADERBOARDS+sessionID+"&sorted&limit=20";
+                loadLeaderboard(url);
+            }
+        }
+
+        function checkForTestScore(){
+            if(testSc()){
+                let testScore=params.get("score");
+                let testCompleted=params.has("completed");
+                let url=TH_TEST_URL+"score?"+"score="+testScore+"&completed="+testCompleted;
+                document.getElementById("refreshBtn").style.display="none";
+                document.getElementById("viewRank").style.display="none";
+                document.getElementById("tableContainerEntry").style.display="none";
+                document.getElementById("leaderboardTable").style.display="none";
+                document.getElementById("loadingLB").innerText="";
+                setTimeout(score(url),2000);
+            }
+            else if(!testSc() && !testLB()){
+                let sessionID=params.get("session");
+                let url=TH_BASE_URL_SCORE+sessionID;
+                setTimeout(score(url),2000);
+            }
+        }
+
+        function testLB(){
+             let url = new URL(window.location.href);
+            return url.searchParams.get("testLB")!=null;
+        }
+
+        function testSc(){
+            let url = new URL(window.location.href);
+            return url.searchParams.get("testSc")!=null;
+        }
+
+        function convertMsToSec(startsOnString){
+
+            let startsOnNum = Number(startsOnString),
+            sec = Math.floor((startsOnNum/1000) % 60);
+            console.log(sec);
+            return sec;
+        }
+
+        function loadLeaderboard(url){
+            let rankingIndex=1;
+            let name=params.get("playerName");
+           // document.getElementById("loading").innerText="Loading...";
+            fetch(url)
+                .then(response => response.json()) //Parse JSON text to JavaScript object
+                .then(jsonObject => {
+                    //document.getElementById("loading").innerText="";
+                    if(jsonObject.status === "OK") {
+                        let tableContents = "";
+                        if (jsonObject.hasPrize === true) {
+                            document.getElementById("prizeDisplay").innerHTML = "Congratulations, You've won a " + "<b style='color: darksalmon'>" + "prize!" + "</b>";
+                        }
+                        const leaderboardArray = jsonObject.leaderboard;
+                        for (let i = 0; i < leaderboardArray.length; i++) {
+                            const entry = leaderboardArray[i];
+                            const ranking = rankingIndex;
+                            const playerName = entry.player;
+                            const score = entry.score;
+                            const completionTime = entry.completionTime;
+
+                            tableContents += "<tr>\n" +
+                                "    <td>" + ranking + "</td>" +
+                                "    <td>" + playerName + "</td>" +
+                                "    <td>" + score + " pts"+ "</td>" +
+                                "    <td>" + convertMsToSec(completionTime) + "(s)" + "</td>" +
+                                "</tr>";
+                            rankingIndex++;
+                        }
+                        document.getElementById("leaderboardTable").innerHTML += tableContents;
+                    }
+                    else if(jsonObject.status === "ERROR"){
+                        let errorMessage = confirm(jsonObject.errorMessages[0]);
+                        if (errorMessage)
+                            window.location.href = "SignIn.html";
+                    }
+                }
+            )
+        }
+
+        /*Refreshes the leaderboards */
+        function refreshLeaderboard(){
+            let sessionID=params.get("session");
+            let playerName=params.get("playerName");
+            const gameOver = function(){
+                window.location.href = "leaderboards.html?session=" + sessionID + "&sorted&limit=20&playerName=" + playerName+"&indexQ=" +indexQ;
+            };
+
+            setTimeout(gameOver, 50);
+        }
+
+        function getRank(){
+            let rankCounter=1;
+            let sessionID= params.get("session")
+            let rankDisplay=document.getElementById("rankDisplay"); //test
+            fetch( TH_BASE_URL_LEADERBOARDS+  sessionID+ "&sorted&limit=2000")
+                .then(response => response.json())
+                .then(jsonObject => {
+                    let name = params.get("playerName");
+                    let leaderboardArray = jsonObject.leaderboard;
+                    let tableEntry="";
+                    for (let i = 0; i < leaderboardArray.length-1; i++) {
+                        const entry = leaderboardArray[i];
+                        const playerName = entry.player;
+                        const score = entry.score;
+                        const completionTime = entry.completionTime;
+                        if(!testSc()) {
+                            if (playerName === name) {
+                                tableEntry += "<tr>\n" +
+                                    "    <td>" + rankCounter + "</td>" +
+                                    "    <td>" + playerName + "</td>" +
+                                    "    <td>" + score + " pts"+ "</td>" +
+                                    "    <td>" + convertMsToSec(completionTime) + "(s)" + "</td>" +
+                                    "</tr>";
+                                document.getElementById("leaderboardTableEntry").innerHTML += tableEntry;
+                                rankDisplay.innerHTML = " and your rank is " + "<b style='color: darksalmon'>" + rankCounter + "</b>";
+                                document.getElementById("loadingLB").innerText="";
+                                document.getElementById("scoreDisplay").style.display = "block";
+                                document.getElementById("LBContainer").style.display="block";
+                                document.getElementById("tableContainerEntry").style.display="block";
+                                setTimeout(deleteCookies, 10);
+                            } else {
+                                rankCounter++;
+                            }
+                        }
+                    }
+                    //change color of the Single entry box//
+                    let tableCells=document.getElementById("leaderboardTableEntry");
+                    let rows = tableCells.getElementsByTagName("tr") ;
+                    rows[1].style.backgroundColor = "#FFFFC7";
+                });
+        }
+
+        function score(url){
+            //used for testing -> ignore
+            if(!testSc()){
+                document.getElementById("scoreDisplay").style.display = "none";
+            }
+            else{
+                document.getElementById("scoreDisplay").style.display = "block";
+            }
+
+            let completedLB="";
+            fetch(url)
+                .then(response => response.json())
+                .then(jsonObject => {
+                    if(jsonObject.status === "OK"){
+                        if((jsonObject.completed === false) && (jsonObject.finished === false)){
+                            completedLB="is not completed ";
+                            document.getElementById("scoreDisplay").innerHTML="The game "+ completedLB + "<b style='color: darksalmon'>"+ jsonObject.player + "</b>" + ",and your score is "+ "<b style='color: darksalmon'>" + jsonObject.score  + " points." +"</b>"
+                        }
+                        else if(jsonObject.completed === true){
+                            completedLB="is completed ";
+                            document.getElementById("scoreDisplay").innerHTML="Congratulations the game "+ completedLB +"<b style='color: darksalmon'>"+ jsonObject.player + "</b>" + ", and your score is "+ "<b style='color: darksalmon'>" + jsonObject.score + " points." + "</b>"  +
+                            "<span id='rankDisplay'></span>";
+                            getRank();
+                        }
+                    }
+                    else{
+                        let errorMessage = confirm(jsonObject.errorMessages[0]);
+                        if (errorMessage) window.location.href = "SignIn.html";
+                        else  window.location.href = "SignIn.html";
+                    }
+                });
+        }
+
+        function getCookie(cookieName) {
+            let name = cookieName + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function saveCookie(cookieName, cookieValue,cookieLifespan) {
+            let date = new Date();
+            date.setTime(date.getTime() + (cookieLifespan * 60 * 60 * 1000));
+            let expires = "expires=" + date.toUTCString();
+            document.cookie = cookieName + "=" + cookieValue + ";" + expires;
+        }
+
+        function goToIndex(){
+            setTimeout(function(){window.location.href="index.html";},500);
+        }
+
+        function goToSignIn(){
+            setTimeout(function(){window.location.href="SignIn.html";},500);
+        }
+
+        function goToTH(){
+            let name=params.get("playerName");
+            setTimeout(function(){window.location.href="SignIn.html?restart&playerName="+name;},500);
+        }
+
+        function goToViewPage(){
+            setTimeout(function(){window.location.href="ViewAnswers.html?&indexQ=" +indexQ;},500);
+        }
+
+        function deleteCookies(){
+            document.cookie = 'saveGame=' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+            document.cookie = 'nameOfGame=' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+            document.cookie = 'sessionID=' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+            document.cookie = 'playerNameCookie=' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+
+        }
+
+    </script>
+
+
+
+
+</body>
+</html>

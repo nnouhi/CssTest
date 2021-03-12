@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>BrainstormQ</title>
+    <meta name="viewport" content="width=device-width" >
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="BrainstormQ Treasure hunt web app">
+</head>
+<body onload="checkRestart()">
+
+<div class="topnav" id="topnav" style="margin-bottom:20%">
+
+<!--
+    <a href="javascript:getChallenges(this);" id="refresh" class="refresh">Refresh</a>
+-->
+
+    <button id="homeBtn" class="appBtns" onclick="window.location.href='index.html'"> <i class="fa fa-home"></i>Home</button>
+    <button id="restartBtn" class="appBtns" onclick="window.location.href='SignIn.html'"><i class="fa fa-rotate-left"></i>Restart</button>
+    <button id="infoBtn" class="infoBtn"><i class="fa fa-question-circle-o"></i>Info</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+            <p style="color:black">Enter your name and get directed to our available <span style="color: darksalmon"> Treasure Hunt Challenges!</span> </p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="IndexContainer" id="IndexContainer">
+    <h3 class="HD">Enter Your Username</h3>
+    <form action="javascript:checkName(this);">
+        <input type="text" id="Tname" name="name" placeholder="Your name.. " required>
+        <button type="submit" class="appBtns" id="nameBtn">Submit</button>
+    </form>
+</div>
+
+<div class="loadingMessageContainer" id="loadingMessageContainer">
+    <h2 class="challengesLoading" id="challengesLoading" style="color: black">Loading...</h2>
+</div>
+
+<div class="wrapper">
+    <div id="displayChallenges" class="IndexContainer3">
+        <h1>All Treasure Hunts</h1>
+        <p>Click one of the Treasure Hunts and start <b><span style="color:darksalmon">brain-storming!</span></b></p>
+        <ul id="treasureHunts">
+        </ul>
+    </div>
+</div>
+
+<script>
+
+
+    const TH_BASE_URL = "https://codecyprus.org/th/api/"; // the true API base url
+
+    // Get the modal
+    let modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    let btn = document.getElementById("infoBtn");
+
+    // Get the <span> element that closes the modal
+    let span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    const params = new URLSearchParams(location.search);
+
+
+    function checkRestart(){
+        if(params.has("restart")){
+            document.getElementById("IndexContainer").style.display="none";
+            setTimeout(function(){getChallenges(this);},50);
+        }
+    }
+
+
+
+
+    function getChallenges() {
+        /*After the player inputs their name Hide the log in "container" and display the challenges */
+        let playerName;
+
+        if(params.has("restart")){
+            playerName=params.get("playerName");
+        }
+        else{
+            playerName=document.getElementById("Tname").value;
+        }
+
+
+
+        fetch(TH_BASE_URL+"list")
+            .then(response => response.json()) //Parse JSON text to JavaScript object
+            .then(jsonObject => {
+
+                document.getElementById("displayChallenges").style.display = "block";
+
+                document.getElementById("loadingMessageContainer").style.display="none";
+
+                let treasureHuntsArray=jsonObject.treasureHunts; //Obtain a reference to the treasureHunts array from the parsed object.
+
+                let listHtml = "<ul>";
+
+                for(let i=0; i<treasureHuntsArray.length; i++) //Create a loop that traverses the treasureHunts array
+                    //and  creates a new list element for each treasure hunt object:
+                {
+
+                    listHtml += // each treasure hunt item is shown with an individual DIV element
+                        "<li>" + "<b>" +"<a id='TH' href='app.html?player=" + playerName + "&app=BrainstormQ&treasure-hunt-id=" + treasureHuntsArray[i].uuid
+                        + '&time='+ treasureHuntsArray[i].maxDuration + '&nameOfGame='+ treasureHuntsArray[i].name+"'>" + i +". "+" " +treasureHuntsArray[i].name +"</a>" + "</b>" +"</li>"
+                        +"<li>" + "<b>" + "Starts on: " + "</b>" + convertMsToDate(treasureHuntsArray[i].startsOn) + "</li>"
+                        +"<li>" + "<b>" + "Duration: "+ "</b>" + convertMsToMinutes(treasureHuntsArray[i].maxDuration) + "</li>"
+                }
+                listHtml += "</ul>";
+                document.getElementById("displayChallenges").style.display = "inline-block";
+                document.getElementById("treasureHunts").innerHTML = listHtml;
+            });
+
+    }
+
+
+    /*Checks if the name that was provided has an unfinished session */
+    function checkName() {
+        let playerName = document.getElementById("Tname").value;
+        document.getElementById("IndexContainer").style.display = "none";
+        if ((getCookie("saveGame") === "true") && (getCookie("playerNameCookie") === playerName)) {
+            continueSession();
+        }
+        else {
+            getChallenges(this);
+            document.getElementById("loadingMessageContainer").style.display="inline-block";
+
+        }
+    }
+
+    /*Asks user if wants to continue with his unfinished session */
+    function continueSession(){
+        let continueGame = confirm ("It seems like you were playing " +getCookie("nameOfGame") +" as "+"'"+getCookie("playerNameCookie")
+            +"'"+"\nClick OK to continue where you left off or " +
+            "\nCancel to start a new session.")
+
+        if (continueGame) {
+            //go to continued session
+            window.location.href="app.html?player="+getCookie("playerNameCookie");
+        }
+        else{
+            //delete cookies go back to log in
+            const deleteCookies = function(){
+                    document.cookie = 'saveGame=' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+                    document.cookie = 'nameOfGame=' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+                    document.cookie = 'sessionID=' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+                    document.cookie = 'playerNameCookie=' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+            };
+            setTimeout(deleteCookies, 10);
+
+            setTimeout(function(){window.location.href="SignIn.html";},500);
+        }
+    }
+
+    function convertMsToMinutes(maxDurationString){
+        maxDurationNum = Number(maxDurationString); //actually didnt need to convert
+        let m = Math.floor((maxDurationNum / 1000 / 60) << 0)
+        return m + " minutes";
+    }
+    function convertMsToDate(startsOnString){
+        let startsOnNum = Number(startsOnString); //actually didnt need to convert
+        let options = {
+            year: 'numeric', month: 'numeric', day: 'numeric',
+        };
+        let date = new Date(startsOnNum);
+        let result = date.toLocaleDateString('en', options); // month/day/year
+        return result;
+    }
+
+    function getCookie(cookieName) {
+        let name = cookieName + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+
+</script>
+
+</body>
+</html>

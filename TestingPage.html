@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testing Page</title>
+    <script defer src="unitTest.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+
+</head>
+<body>
+    <div>
+        <h1 class="unitTestHD">Unit testing efforts!</h1>
+    </div>
+
+    <div class="unitTestContainer">
+        <div>
+            <h3>Unit test for Leaderboards</h3>
+            <div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="sorted" onclick="checkBoxSorted()">
+                    <label for="sorted">Check for <b>sorted</b> leaderboards</label><br>
+
+                </div>
+
+                <div class="checkboxes">
+                    <input type="checkbox" id="prize" onclick="checkBoxPrize()">
+                    <label for="prize"> Check for <b>has prize</b> leaderboards</label><br>
+                </div>
+
+                <div>
+                    <label for="numberOfPlayers"><b>Enter any number of players to be displayed:</b></label><br><br>
+                    <input type="textbox" id="numberOfPlayers" placeholder="Enter number of players..." required>
+                    <br>
+                    <br>
+                </div>
+                <div class="checkboxesP">
+                    <p class="sortedP" id="sortedP" style="color:red">Leaderboards will be sorted</p>
+                    <p class="prizeP" id="prizeP" style="color:red">There will be a prize</p>
+                </div>
+                <div class="submitLdboards">
+                   <button type="submit" onclick="getNumPlayers()">Submit</button>
+                </div>
+                <br>
+                <br>
+                <div style="text-align: center">
+                    <button  type="submit" onclick="showLBTable()" >Hide/Reveal Testing Results <b><i>Leaderboards</i></b></button>
+                    <br>
+                    <br>
+                </div>
+                <div style="overflow-x:auto;" class="LBTableContainer" id="LBTableContainer">
+                    <table  class="LBTable">
+                        <tr>
+                            <th>Input/Sorted or not</th>
+                            <th>Result</th>
+                            <th>Expected</th>
+                            <th>Has Prize or not</th>
+                            <th>Has Prize or not result</th>
+                            <th>Passed</th>
+                            <th>observations</th>
+
+                        </tr>
+                        <tr>
+                            <td>-5/Sorted/Not</td>
+                            <td>42/Sorted/Not</td>
+                            <td>An Error</td>
+                            <td>True/False</td>
+                            <td>True/False</td>
+                            <td>No</td>
+                            <td>I was expecting an error regarding the number of players but got back a wrong information and no error, Has prize and Sorted work</td>
+                        </tr>
+                        <tr>
+                            <td>999999999/Sorted/Not</td>
+                            <td>42/Sorted/Not</td>
+                            <td>All completed entries</td>
+                            <td>True/False</td>
+                            <td>True/False</td>
+                            <td>No</td>
+                            <td>I was expecting all completed entries to show up but only 42 did, Has prize and Sorted work</td>
+                        </tr>
+                        <tr>
+                            <td>0/Sorted/Not</td>
+                            <td>0/Sorted/Not</td>
+                            <td>0</td>
+                            <td>True/False</td>
+                            <td>True/False</td>
+                            <td>Yes</td>
+                            <td>As i expected no entries appeared, Has prize works, sorted I don't know</td>
+                        </tr>
+                        <tr>
+                            <td>¬/Sorted/Not</td>
+                            <td>42/Sorted/Not</td>
+                            <td>Error</td>
+                            <td>True/False</td>
+                            <td>True/False</td>
+                            <td>No</td>
+                            <td>I was expecting an error because I submitted a symbol, but I got back wrong information and no error, Has prize and Sorted work</td>
+                        </tr>
+                        <tr>
+                            <td>B/Sorted/Not</td>
+                            <td>42/Sorted/Not</td>
+                            <td>Error</td>
+                            <td>True/False</td>
+                            <td>True/False</td>
+                            <td>No</td>
+                            <td>I was expecting an error because I submitted a character, but I got back wrong information and no error, Has prize and Sorted work</td>
+                        </tr>
+                        <tr>
+                            <td>6.8/Sorted/Not</td>
+                            <td>42/Sorted/Not</td>
+                            <td>Error</td>
+                            <td>True/False</td>
+                            <td>True/False</td>
+                            <td>No</td>
+                            <td>I was expecting an error because I submitted a float number, but I got back wrong information and no error, Has prize and Sorted work</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="testScore">
+            <h3>Unit test for Score</h3>
+            <div class="checkboxes">
+                <input type="checkbox" id="completedCheckBox"  onclick="checkBoxCompleted()">
+                <label for="sorted">Check for <b>completed</b> game</label><br>
+            </div>
+            <div>
+                <label for="score"><b>Enter the score you want to be displayed:</b></label><br><br>
+                <input type="textbox" id="score" placeholder="Score..." required>
+            </div>
+            <div class="checkboxesP">
+                <p class="sortedP" id="completedP" style="color: red">Game will be completed</p>
+            </div>
+            <br>
+            <div class="submitScore">
+                <button type="submit" onclick="getScore()">Submit</button>
+            </div>
+            <br>
+            <br>
+            <div style="text-align: center">
+                <button  type="submit" onclick="showScoreTable()" >Hide/Reveal Testing Results <b><i>Score</i></b></button>
+                <br>
+                <br>
+            </div>
+            <div style="overflow-x:auto;" class="ScoreTableContainer" id="ScoreTableContainer">
+                <table  class="ScoreTable">
+                    <tr>
+                        <th>Input/Completed or not</th>
+                        <th>Result</th>
+                        <th>Expected</th>
+                        <th>Passed</th>
+                        <th>observations</th>
+
+                    </tr>
+                    <tr>
+                        <td>-50000/Completed/Not</td>
+                        <td>-1000/Completed/Not</td>
+                        <td>Error</td>
+                        <td>No</td>
+                        <td>I was expecting an Error, but I got back the score of -1000 (server max score?),Not/Completed Works</td>
+                    </tr>
+                    <tr>
+                        <td>99999999999/Completed/Not</td>
+                        <td>42/Completed/Not</td>
+                        <td>1000</td>
+                        <td>No</td>
+                        <td>I was expecting to get a score of 1000 because of the previous attempt I thought the max score was 1000,Not/Completed Works</td>
+                    </tr>
+                    <tr>
+                        <td>100/Completed/Not</td>
+                        <td>100/Completed/Not</td>
+                        <td>100</td>
+                        <td>Yes</td>
+                        <td>Works as expected,Not/Completed Works</td>
+                    </tr>
+                    <tr>
+                        <td>-100/Completed/Not</td>
+                        <td>-100/Completed/Not</td>
+                        <td>-100</td>
+                        <td>Yes</td>
+                        <td>Works as expected,Not/Completed Works</td>
+                    </tr>
+                    <tr>
+                        <td>B/Completed/Not</td>
+                        <td>42/Completed/Not</td>
+                        <td>Error</td>
+                        <td>No</td>
+                        <td>I was expecting an error because I submitted a character, but I got back wrong information and no error,Not/Completed Works</td>
+                    </tr>
+                    <tr>
+                        <td>6.8/Completed/Not</td>
+                        <td>42/Completed/Not</td>
+                        <td>Error</td>
+                        <td>No</td>
+                        <td>I was expecting an error because I submitted a float number, but I got back wrong information and no error,Not/Completed Works</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="testQuestions">
+            <h3>Unit test for Questions</h3>
+            <label for="qType">Select a question type:</label>
+            <select name="qType" id="qType" class="qType">
+                <option value="Integer">Integer</option>
+                <option value="Boolean">Boolean</option>
+                <option value="Text">Text</option>
+                <option value="Numeric">Numeric</option>
+                <option value="Mcq">Mcq</option>
+            </select>
+            <div class="checkboxes">
+                <input type="checkbox" id="completedQCheckBox"  onclick="checkBoxCompletedQ()">
+                <label for="sorted">Check for <b>Completed</b> Questions</label><br>
+            </div>
+            <div class="checkboxes">
+                <input type="checkbox" id="GeolocationCheckBox"  onclick="checkBoxGeolocation()">
+                <label for="sorted">Check for questions that require <b>Geolocation</b></label><br>
+            </div>
+            <div class="checkboxes">
+                <input type="checkbox" id="SkipCheckBox"  onclick="checkBoxSkip()">
+                <label for="sorted">Check for questions that can be <b>Skipped</b></label><br>
+            </div>
+            <div class="checkboxesP">
+                <p class="completedQP" id="completedQP" style="color:red">Question will count as Completed</p>
+                <p class="geolocationP" id="geolocationP" style="color:red">Question will require Geolocation</p>
+                <p class="skipP" id="skipP" style="color:red">Question can be Skipped</p>
+            </div>
+            <br>
+            <div class="submitQ">
+                <button type="submit" onclick="getQType()">Submit</button>
+            </div>
+            <br>
+            <br>
+            <div style="text-align: center">
+                <button  type="submit" onclick="showQuestionsTable()" >Hide/Reveal Testing Results <b><i>Questions</i></b></button>
+                <br>
+                <br>
+            </div>
+            <div style="overflow-x:auto;" class="QuestionsTableContainer" id="QuestionsTableContainer">
+                <table  class="ScoreTable">
+                    <tr>
+                        <th>Question Type</th>
+                        <th>Result</th>
+                        <th>Expected</th>
+                        <th>Passed</th>
+                        <th>observations</th>
+
+                    </tr>
+                    <tr>
+                        <td>Integer</td>
+                        <td>Integer</td>
+                        <td>Integer</td>
+                        <td>YES</td>
+                        <td>Works perfectly on geolocation and skipped, if completed is checked takes user to leaderboard</td>
+                    </tr>
+                    <tr>
+                        <td>Boolean</td>
+                        <td>Boolean</td>
+                        <td>Boolean</td>
+                        <td>YES</td>
+                        <td>Works perfectly on geolocation and skipped, if completed is checked takes user to leaderboard</td>
+                    </tr>
+                    <tr>
+                        <td>Numeric</td>
+                        <td>Numeric</td>
+                        <td>Numeric</td>
+                        <td>YES</td>
+                        <td>Works perfectly on geolocation and skipped, if completed is checked takes user to leaderboard</td>
+                    </tr>
+                    <tr>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>YES</td>
+                        <td>Works perfectly on geolocation and skipped, if completed is checked takes user to leaderboard</td>
+                    </tr>
+                    <tr>
+                        <td>Mcq</td>
+                        <td>Mcq</td>
+                        <td>Mcq</td>
+                        <td>YES</td>
+                        <td>Works perfectly on geolocation and skipped, if completed is checked takes user to leaderboard</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
